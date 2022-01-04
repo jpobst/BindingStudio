@@ -15,8 +15,8 @@ namespace BindingStudio
 {
 	public partial class MainForm : Form
 	{
-		public const int CURRENT_API_LEVEL = 31;
 		public const char CURRENT_API_NAME = 'S';
+		public const int CURRENT_API_LEVEL = 32;
 
 		private DataGridView grid;
 		List<ConstantEntry> constants;
@@ -103,14 +103,14 @@ namespace BindingStudio
 
 		void OpenMethodMapToolStripMenuItem_Click (object sender, EventArgs e)
 		{
-			//using var open = new OpenFileDialog {
-			//	Title = "Choose .csv file to import method map from:",
-			//	Filter = "CSV (*.csv)|*.csv"
-			//};
+			using var open = new OpenFileDialog {
+				Title = "Choose .csv file to import method map from:",
+				Filter = "CSV (*.csv)|*.csv"
+			};
 
-			//if (open.ShowDialog () == DialogResult.OK) {
-			//	var file = open.FileName;
-			var file = api_31_csv;
+			if (open.ShowDialog () == DialogResult.OK) {
+				var file = open.FileName;
+				//var file = api_31_csv;
 			MethodsFileName = file;
 			method_map = MethodMapParser.FromMethodMapCsv (file);
 
@@ -129,7 +129,7 @@ namespace BindingStudio
 			}
 
 			toolStripStatusLabel1.Text = treeView1.Nodes.Count.ToString () + " remaining";
-			//}
+			}
 		}
 
 		void SaveToolStripMenuItem_Click (object sender, EventArgs e)
@@ -190,7 +190,7 @@ namespace BindingStudio
 			treeView1.Nodes.Clear ();
 
 			//foreach (var group in constants.GroupBy (c => $"{c.JavaPackage}.{c.JavaType}")) {
-			foreach (var group in constants.Where (c => c.ApiLevel == 31 && c.Action == ConstantAction.None && !c.JavaSignature.StartsWith ("android/R$")).GroupBy (c => $"{c.JavaPackage}.{c.JavaType}")) {
+			foreach (var group in constants.Where (c => c.ApiLevel == CURRENT_API_LEVEL && c.Action == ConstantAction.None && !c.JavaSignature.StartsWith ("android/R$")).GroupBy (c => $"{c.JavaPackage}.{c.JavaType}")) {
 				var root = new TreeNode (group.Key);
 				treeView1.Nodes.Add (root);
 			}
@@ -333,11 +333,17 @@ namespace BindingStudio
 		// Searches an api.xml file for new methods that involve an int
 		private void FindAPILevelMethodsToolStripMenuItem_Click (object sender, EventArgs e)
 		{
-			var api = @"C:\code\xamarin-android\src\Mono.Android\obj\Debug\monoandroid10\android-S\mcw\api.xml";
-			var existing = @"C:\Users\jopobst\Desktop\api-31.csv";
-			var csv = @"C:\Users\jopobst\Desktop\api-31-new-parameters.csv";
+			// The api.xml file for the new API level
+			var api = @"C:\code\xamarin-android\src\Mono.Android\obj\Debug\net6.0\android-32\mcw\api.xml";
 
-			var existing_methods = MethodMapParser.FromMethodMapCsv (existing);
+			// Output method map for new API level
+			// This should be a new file, not the existing methodmap.csv
+			var csv = @"C:\Users\jopobst\Desktop\api-32-new-methods.csv";
+
+
+			//var existing = @"C:\Users\jopobst\Desktop\api-31.csv";
+
+			//var existing_methods = MethodMapParser.FromMethodMapCsv (existing);
 			var methods = MethodMapParser.FromApiXml (api);
 
 			// Copy new data to existing file
@@ -352,14 +358,16 @@ namespace BindingStudio
 			//}
 
 			// Add new "31" methods
-			var api_31 = methods.Where (r => r.ApiLevel == 31).ToList ();
+			var new_methods = methods.Where (r => r.ApiLevel == CURRENT_API_LEVEL).ToList ();
 
 			//foreach (var method in api_31)
 			//	if (!existing_methods.Contains (method, MethodMapEntry.MethodMapComparer.Instance))
 			//		existing_methods.Add (method);
 
 			//MethodMapParser.SaveMethodMapCsv (existing_methods, existing);
-			MethodMapParser.SaveMethodMapCsv (api_31, csv, true);
+			MethodMapParser.SaveMethodMapCsv (new_methods, csv, true);
+
+			MessageBox.Show ("Done");
 		}
 
 		private void ExportFinalMethodMapToolStripMenuItem_Click (object sender, EventArgs e)
