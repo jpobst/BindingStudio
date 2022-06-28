@@ -15,8 +15,8 @@ namespace BindingStudio
 {
 	public partial class MainForm : Form
 	{
-		public const char CURRENT_API_NAME = 'S';
-		public const int CURRENT_API_LEVEL = 32;
+		public const int CURRENT_API_LEVEL = 33;
+		public const char CURRENT_API_NAME = 'T';
 
 		private DataGridView grid;
 		List<ConstantEntry> constants;
@@ -25,8 +25,6 @@ namespace BindingStudio
 		private string open_constants_filename;
 		private string open_methods_filename;
 		private MethodMapPanel current_panel;
-
-		string api_31_csv = @"C:\Users\jopobst\Desktop\api-31.csv";
 
 		public MainForm ()
 		{
@@ -334,11 +332,11 @@ namespace BindingStudio
 		private void FindAPILevelMethodsToolStripMenuItem_Click (object sender, EventArgs e)
 		{
 			// The api.xml file for the new API level
-			var api = @"C:\code\xamarin-android\src\Mono.Android\obj\Debug\net6.0\android-32\mcw\api.xml";
+			var api = @"C:\code\xamarin-android\src\Mono.Android\obj\Debug\net7.0\android-33\mcw\api-33.xml";
 
 			// Output method map for new API level
 			// This should be a new file, not the existing methodmap.csv
-			var csv = @"C:\Users\jopobst\Desktop\api-32-new-methods.csv";
+			var csv = @"C:\code\xamarin-android\src\Mono.Android\api-33-new-methods.csv";
 
 
 			//var existing = @"C:\Users\jopobst\Desktop\api-31.csv";
