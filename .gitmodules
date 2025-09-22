@@ -1,3 +1,4 @@
 [submodule "external/java.interop"]
 	path = external/java.interop
-	url = https://github.com/xamarin/java.interop.git
+	url = https://github.com/dotnet/java-interop.git
+	branch = main

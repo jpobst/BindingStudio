@@ -173,8 +173,9 @@ namespace BindingStudio
             // openMethodMapToolStripMenuItem
             // 
             this.openMethodMapToolStripMenuItem.Name = "openMethodMapToolStripMenuItem";
+            this.openMethodMapToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
             this.openMethodMapToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.openMethodMapToolStripMenuItem.Text = "Open Method Map";
+            this.openMethodMapToolStripMenuItem.Text = "Open &Method Map";
             // 
             // toolStripSeparator
             // 
