@@ -15,8 +15,8 @@ namespace BindingStudio
 {
 	public partial class MainForm : Form
 	{
-		public const int CURRENT_API_LEVEL = 33;
-		public const char CURRENT_API_NAME = 'T';
+		public readonly AndroidSdkVersion CURRENT_API_LEVEL = new AndroidSdkVersion (36, 1);
+		public const char CURRENT_API_NAME = 'C';
 
 		private DataGridView grid;
 		List<ConstantEntry> constants;
@@ -332,11 +332,11 @@ namespace BindingStudio
 		private void FindAPILevelMethodsToolStripMenuItem_Click (object sender, EventArgs e)
 		{
 			// The api.xml file for the new API level
-			var api = @"C:\code\xamarin-android\src\Mono.Android\obj\Debug\net7.0\android-33\mcw\api-33.xml";
+			var api = @"W:\src\dotnet\android\src\Mono.Android\obj\Debug\net10.0\android-36.1\mcw\api-36.1.xml";
 
 			// Output method map for new API level
 			// This should be a new file, not the existing methodmap.csv
-			var csv = @"C:\code\xamarin-android\src\Mono.Android\api-33-new-methods.csv";
+			var csv = @"W:\src\dotnet\android\src\Mono.Android\api-36.1-new-methods.csv";
 
 
 			//var existing = @"C:\Users\jopobst\Desktop\api-31.csv";
