@@ -126,10 +126,15 @@ namespace BindingStudio.Panels
 
 		private void btnSearch_Click (object sender, EventArgs e)
 		{
-			var matches = constants.Where (c => c.JavaName.Contains (textBox1.Text, StringComparison.OrdinalIgnoreCase));
+			var matches = constants
+				.Where (c => c.JavaName.Contains (textBox1.Text, StringComparison.OrdinalIgnoreCase)
+					|| (c.EnumFullType?.Contains (textBox1.Text, StringComparison.OrdinalIgnoreCase) ?? false)
+					)
+				.Select (c => c.JavaSignature)
+				.ToArray ();
 
 			listBox2.Items.Clear ();
-			listBox2.Items.AddRange (matches.Select (c => c.JavaSignature).ToArray ());
+			listBox2.Items.AddRange (matches);
 		}
 	}
 }

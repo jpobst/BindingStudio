@@ -35,7 +35,7 @@ namespace BindingStudio.Panels
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(36, 891);
+            this.radioButton1.Location = new System.Drawing.Point(36, 900);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(76, 19);
             this.radioButton1.TabIndex = 1;
@@ -46,7 +46,7 @@ namespace BindingStudio.Panels
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(36, 916);
+            this.radioButton2.Location = new System.Drawing.Point(36, 940);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(59, 19);
             this.radioButton2.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace BindingStudio.Panels
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(36, 941);
+            this.radioButton3.Location = new System.Drawing.Point(36, 980);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(69, 19);
             this.radioButton3.TabIndex = 1;
@@ -78,24 +78,24 @@ namespace BindingStudio.Panels
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(591, 830);
+            this.comboBox1.Location = new System.Drawing.Point(36, 1120);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(515, 23);
+            this.comboBox1.Size = new System.Drawing.Size(1000, 30);
             this.comboBox1.TabIndex = 2;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(591, 867);
+            this.listBox1.Location = new System.Drawing.Point(36, 1150);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(515, 154);
+            this.listBox1.Size = new System.Drawing.Size(1000, 200);
             this.listBox1.TabIndex = 3;
             // 
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(43, 976);
+            this.btnSave.Location = new System.Drawing.Point(36, 1020);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 25);
             this.btnSave.TabIndex = 4;
@@ -105,17 +105,17 @@ namespace BindingStudio.Panels
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1250, 830);
+            this.textBox1.Location = new System.Drawing.Point(1200, 1120);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(253, 23);
+            this.textBox1.Size = new System.Drawing.Size(750, 30);
             this.textBox1.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(1509, 830);
+            this.button1.Location = new System.Drawing.Point(1200+750, 1120);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 25);
+            this.button1.Size = new System.Drawing.Size(250, 30);
             this.button1.TabIndex = 4;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,9 +125,9 @@ namespace BindingStudio.Panels
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(1250, 867);
+            this.listBox2.Location = new System.Drawing.Point(1200, 1120+40);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(508, 154);
+            this.listBox2.Size = new System.Drawing.Size(1000, 200);
             this.listBox2.TabIndex = 6;
             // 
             // MethodMapPanel
